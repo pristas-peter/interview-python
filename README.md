@@ -30,13 +30,17 @@ Starting from a default decision of `AUTO_APPROVE`:
 
 If multiple rules match, the strictest wins (`AUTO_DECLINE` > `REFER_TO_HUMAN` > `AUTO_APPROVE`).
 
-### LLM-based check (must use a real OpenAI call)
+### LLM-based check (must use a real local LLM)
 
-Send `reason_for_loan` to an LLM. The LLM must return a **structured** result containing at least:
+Send `reason_for_loan` to a **local LLM** running on your machine via Ollama, LM Studio, or any equivalent that exposes an OpenAI-compatible HTTP API on `localhost`. No cloud calls — the whole exercise runs locally.
+
+The LLM must return a **structured** result containing at least:
 
 - `red_flag` (boolean)
 - `category` (one of `"gambling"`, `"crypto"`, `"debt_consolidation"`, `"other"`, or `null` if no red flag)
 - `rationale` (short string)
+
+How you guarantee the LLM produces this shape (`response_format`, JSON schema, prompt engineering + post-validation, …) is up to you. Small local models can be unreliable at strict JSON output — handle that.
 
 If `red_flag` is `true`, **downgrade** the decision one step:
 
@@ -49,8 +53,8 @@ The final response combines the decision and a short rationale (deterministic an
 ## Required constraints
 
 - **Language: Python ≥3.11.** Web framework: your choice (FastAPI, Flask, Django, Litestar — whatever you prefer).
-- **Real LLM call.** Use the OpenAI API key we provide. `gpt-4o-mini` is fine.
-- **At least one unit test for the business decision logic that runs offline** — no network, no real API call. How you make this work is up to you; we are very interested in your approach to testing LLM-dependent code.
+- **Real local LLM.** Use Ollama, LM Studio, or any OpenAI-compatible local server. Any small instruct model works (Llama 3.2, Qwen 2.5, Phi-3.5, …).
+- **At least one unit test for the business decision logic that runs without the LLM service** — no real LLM call, no live process required. How you achieve this is up to you; we are very interested in your approach to testing LLM-dependent code.
 - **A clear contract for consumers.** Someone calling your service should be able to figure out how to call it and what to expect back, without reading your source.
 
 ## Setup
@@ -61,7 +65,7 @@ cd <REPO>
 # Use whatever package manager you like: uv, pip, poetry, ...
 ```
 
-We'll share the OpenAI API key in chat at the start.
+You should have a local LLM server running by the time we start (we asked you to set this up beforehand). Verify it responds to a request before you begin. If you hit any local-setup blocker, flag it at the start — we have an OpenAI cloud key with small credit ready as a fallback.
 
 ## How to share your work
 
