@@ -1,0 +1,49 @@
+Five example loan applications. Use these to test your service.
+
+These are in plain prose on purpose — designing the actual request/response
+schema (field names, types, structure) is part of the exercise. Translate
+each example into your own JSON (or whatever you prefer).
+
+Expected outcomes are intentionally not provided — derive them from the spec.
+
+================================================================================
+Example 1 — Clean approve
+================================================================================
+
+A 28-year-old software engineer applies for a used-car loan. They earn
+4,000 EUR per month, have 200 EUR of existing monthly debt, and want to
+borrow 15,000 EUR over 36 months. Their stated reason: "Buying a used car
+to commute to a new job."
+
+================================================================================
+Example 2 — High amount, otherwise healthy
+================================================================================
+
+A dentist earning 12,000 EUR per month with 1,000 EUR of existing monthly
+debt applies for a 250,000 EUR loan over 60 months to purchase a family
+home with their partner.
+
+================================================================================
+Example 3 — High debt-to-income
+================================================================================
+
+A barista earning 2,000 EUR per month, already carrying 800 EUR of monthly
+debt, applies for 30,000 EUR over 36 months. They say they need to replace
+a broken refrigerator and a couple of other appliances.
+
+================================================================================
+Example 4 — Blocked occupation
+================================================================================
+
+An applicant lists their occupation as "professional gambler". They earn
+5,000 EUR per month, have 500 EUR of existing debt, and want 20,000 EUR
+over 48 months for renovating their apartment.
+
+================================================================================
+Example 5 — LLM red flag on otherwise clean inputs
+================================================================================
+
+A graphic designer earning 3,500 EUR per month, with 300 EUR of monthly
+debt, applies for 8,000 EUR over 24 months. Their stated reason: "I want
+to put it all on red at the roulette table next weekend at a casino in
+Monaco."

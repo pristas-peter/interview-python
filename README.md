@@ -69,7 +69,7 @@ You should have a local LLM server running by the time we start (we asked you to
 
 ## Example loan applications
 
-See [`examples/loans.json`](examples/loans.json) for five sample inputs covering different branches of the decision logic (clean approve, refer via amount, decline via DTI, decline via blocked occupation, LLM downgrade). Useful as fixtures or curl payloads. Expected outcomes are not included — derive them from the spec.
+See [`examples/loans.txt`](examples/loans.txt) for five scenarios in plain prose, covering different branches of the decision logic (clean approve, refer via amount, decline via DTI, decline via blocked occupation, LLM downgrade). The examples are deliberately *not* in JSON — encoding them into your own request shape is part of the exercise. Expected outcomes are not included; derive them from the spec.
 
 ## How to share your work
 
