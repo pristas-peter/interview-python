@@ -36,6 +36,10 @@ htmlcov/
 .env.*
 !.env.example
 
+# Local interviewer notes (do not commit)
+_message_*.md
+_notes/
+
 # uv / poetry / pip
 .uv/
 poetry.lock
