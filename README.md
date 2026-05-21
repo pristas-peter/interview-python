@@ -67,6 +67,10 @@ cd <REPO>
 
 You should have a local LLM server running by the time we start (we asked you to set this up beforehand). Verify it responds to a request before you begin. If you hit any local-setup blocker, flag it at the start — we have an OpenAI cloud key with small credit ready as a fallback.
 
+## Example loan applications
+
+See [`examples/loans.json`](examples/loans.json) for five sample inputs covering different branches of the decision logic (clean approve, refer via amount, decline via DTI, decline via blocked occupation, LLM downgrade). Useful as fixtures or curl payloads. Expected outcomes are not included — derive them from the spec.
+
 ## How to share your work
 
 Commit as you go and push to a branch — we'll watch the commit history. Incremental commits are encouraged; we are not grading commit-message poetry, but we like seeing how your thinking evolved.
